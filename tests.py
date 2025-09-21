@@ -1,3 +1,5 @@
-arr = [1,2,3,4]
-for i in range(len(arr)):
-  print(i)
+s = input("Write something: ").strip().title()
+
+first, second = s.split()
+
+print(f"Hello, {first}!")

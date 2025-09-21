@@ -1,12 +1,14 @@
-numbers = [2,7,8,11,24,3,11]
+class Solution:
+  def containsDuplicate(self, numbers: list[int]) -> bool:
+    hashset = set()
 
-def contain_duplicates(numbers):
-  seen_numbers= set()
-  for n in numbers:
-    if n in seen_numbers:
-      return True
-    seen_numbers.add(n)
+    for number in numbers:
+      if number in hashset:
+        return True
+      hashset.add(number)
+    return False
 
-  return False
 
-print(contain_duplicates(numbers))
+sol =  Solution()
+print(sol.containsDuplicate([1,3,4,5,2]))
+    

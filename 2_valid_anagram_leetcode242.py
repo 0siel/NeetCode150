@@ -1,23 +1,26 @@
 class Solution:
   def isAnagram(self, s: str, t: str) -> bool:
+    
+
     if len(s) != len(t):
       return False
     
-    alphabet = [0] * 26
+    countS, countT = {}, {}
 
     for i in range(len(s)):
-      alphabet[ord(s[i]) - ord('a')] += 1
-      alphabet[ord(t[i]) - ord('a')] -= 1
+      countS[s[i]] = 1 + countS.get(s[i], 0)
+      countT[t[i]] = 1 + countT.get(t[i], 0)
 
-    for letter in alphabet:
-      if letter != 0:
+    for c in s:
+      if countS[c] != countT[c]:
         return False
       
     return True
+
     
 sol = Solution()
 
-print(sol.isAnagram("cat", "naragam"))
+print(sol.isAnagram("cat", "bac"))
 print(sol.isAnagram("anagram", "naragam"))
 print(sol.isAnagram("gaby", "abyg"))
 
